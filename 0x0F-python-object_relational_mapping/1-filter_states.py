@@ -17,3 +17,4 @@ if __name__ == "__main__":
         for result in results:
             print(result)
         db_connection.close
+        c.close
