@@ -4,7 +4,7 @@
 
 if __name__ == "__main__":
     import sys
-    import urllib.request
+    import urllib
 
     with urllib.request.urlopen(sys.argv[1]) as request:
         print(request.info()["X-Request-Id"])

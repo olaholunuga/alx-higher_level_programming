@@ -6,9 +6,9 @@ of the response (decoded in utf-8)
 
 if __name__ == "__main__":
     import sys
-    from urllib import request, parse
+    import urllib
 
-    e_mail = parse.urlencode({"email: sys.argv[2]"}).encode()
-    re_quest = request.Request(sys.argv[1], data=e_mail)
-    with request.urlopen(re_quest) as result:
+    e_mail = urllib.parse.urlencode({"email: sys.argv[2]"}).encode()
+    re_quest = urllib.request.Request(sys.argv[1], data=e_mail)
+    with urllib.request.urlopen(re_quest) as result:
         print(result.read.decode("utf-8"))
