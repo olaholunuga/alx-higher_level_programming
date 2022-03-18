@@ -16,6 +16,6 @@ if __name__ == "__main__":
         c = db_connection.cursor()
         c.execute("SELECT * FROM states WHERE name LIKE '{}' ORDER  BY id ASC;".format(state_name))
         results = c.fetchall()
-        for result in results:
-            print(result)
+        print(results[0])
         db_connection.close
+        c.close

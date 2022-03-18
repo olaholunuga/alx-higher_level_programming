@@ -14,8 +14,8 @@ if __name__ == "__main__":
                 user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3]
                 )
         c = db_connection.cursor()
-        c.execute("SELECT * FROM cities where state.id LIKE ORDER  BY id ASC;")
+        c.execute("SELECT c.name FROM cities as c INNER JOIN states as s ON c.state_id = s.id WHERE s.name LIKE %s ORDER  BY c.id;", (state_name,))
         results = c.fetchall()
         for result in results:
-            print(result)
+            print(result[0])
         db_connection.close
